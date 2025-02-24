@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import { colors } from "./components/PetCard";
 import { Pet, Status } from "./types";
 import { getPetsByStatus } from "./api";
+import { areAllStatusesFalse } from "./utils/helpers";
 
 function App() {
   const [buttonsStatus, setButtonsStatus] = useState({
@@ -33,20 +34,6 @@ function App() {
 
   const isError = queryResults.some((query) => query.isError);
 
-  if (isPending) {
-    return (
-      <div className="flex justify-center h-screen items-center">
-        <div className="loader"></div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="text-center text-4xl mt-14">Something went wrong</div>
-    );
-  }
-
   const data = [
     buttonsStatus.available ? availableData : [],
     buttonsStatus.pending ? pendingData : [],
@@ -72,11 +59,35 @@ function App() {
       );
     });
   };
+  console.log(data);
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center h-screen items-center">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="text-center text-4xl mt-14">Something went wrong</div>
+    );
+  }
 
   return (
     <div className="px-2">
       <div className="flex gap-6 justify-center py-12">{createButtons()}</div>
 
+      {areAllStatusesFalse(buttonsStatus) && (
+        <div className="text-center text-3xl">
+          Please select a button option
+        </div>
+      )}
+
+      {!areAllStatusesFalse(buttonsStatus) && data.length === 0 && (
+        <div className="text-center text-3xl">No pets founds</div>
+      )}
       <div
         id="cardsContainer"
         className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-md md:max-w-3xl lg:max-w-4xl lg:grid-cols-5 mx-auto justify-center place-items-center"

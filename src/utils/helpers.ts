@@ -1,3 +1,5 @@
+import { Status } from "../types";
+
 export function findCategory(name: string, category: string) {
   category = category ? category.toLowerCase() : "";
   name = name ? name.toLowerCase() : "";
@@ -22,4 +24,10 @@ export function findCategory(name: string, category: string) {
 
 function arrayIncludesSubstring(arr: string[], subString: string): boolean {
   return arr.some((item) => item.includes(subString));
+}
+
+export function areAllStatusesFalse(
+  statuses: Record<Status, boolean>
+): boolean {
+  return Object.values(statuses).every((status) => status === false);
 }
