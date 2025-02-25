@@ -27,7 +27,7 @@ A pet adoption tracking application that allows users to browse available, pendi
 - **TypeScript**
 - **Tailwind CSS**
 - **TanStack React Query**
-- **npm**
+- **pnpm**
 - **Vitest** (for testing)
 
 ### **📌 Prerequisites**
@@ -50,13 +50,13 @@ VITE_BASE_API_URL='https://petstore.swagger.io/v2/pet/findByStatus'
 ### **1️⃣ Install Dependencies**
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### **2️⃣ Start the Development Server**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Then, open your browser and navigate to `http://localhost:5173/`.
@@ -75,7 +75,7 @@ PetApp includes unit tests using **Vitest**.
 Run tests with:
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 ## **🌍 Deployment**
