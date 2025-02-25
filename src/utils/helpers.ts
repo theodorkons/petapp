@@ -22,7 +22,10 @@ export function findCategory(name: string, category: string) {
   return "unknown";
 }
 
-function arrayIncludesSubstring(arr: string[], subString: string): boolean {
+export function arrayIncludesSubstring(
+  arr: string[],
+  subString: string
+): boolean {
   return arr.some((item) => item.includes(subString));
 }
 

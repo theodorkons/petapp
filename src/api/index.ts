@@ -15,5 +15,6 @@ export async function getPetsByStatus(
     return await response.json();
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }

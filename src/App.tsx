@@ -14,6 +14,7 @@ function App() {
     pending: false,
     sold: false,
   });
+
   const statuses: Status[] = ["available", "pending", "sold"];
 
   const queryResults = useQueries({
@@ -38,9 +39,7 @@ function App() {
     buttonsStatus.available ? availableData : [],
     buttonsStatus.pending ? pendingData : [],
     buttonsStatus.sold ? soldData : [],
-  ]
-    .flat()
-    .filter(Boolean);
+  ].flat();
 
   const createButtons = () => {
     return statuses.map((status) => {
@@ -59,7 +58,6 @@ function App() {
       );
     });
   };
-  console.log(data);
 
   if (isPending) {
     return (
