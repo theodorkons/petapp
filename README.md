@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+## **🐾 PetApp**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pet adoption tracking application that allows users to browse available, pending, and sold pets. Users can filter pets by status and explore details about them using a clean and interactive UI.
 
-Currently, two official plugins are available:
+## **📖 Table of Contents**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Technologies](#technologies)
+- [Environment Configuration](#environment-configuration)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Deployment](#deployment)
 
-## Expanding the ESLint configuration
+## **🎯 Features**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Filter Pets by Status**: View pets based on their adoption status (`Available`, `Pending`, `Sold`).
+- **Interactive Buttons**: Click on filter buttons to dynamically fetch and display pets.
+- **Dynamic Pet Cards**: Pets are displayed in cards showing their name and category.
+- **Loading Indicator**: A loader appears while fetching pet data.
+- **Error Handling**: Displays an error message if fetching fails.
 
-- Configure the top-level `parserOptions` property like this:
+## **🛠️ Technologies**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Vite**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **TanStack React Query**
+- **npm**
+- **Vitest** (for testing)
+
+### **📌 Prerequisites**
+
+- **Node.js**
+- **Postman** (optional for API testing)
+
+## **⚙️ Environment Configuration**
+
+Create a `.env` file in the root directory and add your API configurations:
+
+```plaintext
+# API Base URL
+VITE_BASE_API_URL='https://petstore.swagger.io/v2/pet/findByStatus'
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## **🚀 Running the Application**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **1️⃣ Install Dependencies**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+### **2️⃣ Start the Development Server**
+
+```bash
+npm run dev
+```
+
+Then, open your browser and navigate to `http://localhost:5173/`.
+
+## **🐶 Usage**
+
+1. **Click on the status buttons** (`Available`, `Pending`, `Sold`) to fetch pets dynamically.
+2. **View pets in cards**, displaying their name, category, and status.
+3. **If no pets are found**, the UI handles the empty state.
+4. **Loading animation appears** while data is being fetched.
+
+## **🧪 Testing**
+
+PetApp includes unit tests using **Vitest**.
+
+Run tests with:
+
+```bash
+npm run test
+```
+
+## **🌍 Deployment**
+
+PetApp is deployed on **Vercel**.  
+Access it here:  
+👉 [PetApp on Vercel](https://petapp-seven.vercel.app/)
